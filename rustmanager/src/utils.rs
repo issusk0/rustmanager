@@ -1,4 +1,5 @@
 use std::*;
+use std::io::Write;
 use std::time::Duration;
 use sysinfo::{Pid, Process, System, Disks};
 
@@ -38,7 +39,7 @@ fn cpu_ram_info(sys: &mut System){
         
         println!("Total RAM Memory: {} MB", total_memory / 1024 / 1024);
         println!("Available RAM memory: {} MB", free_memory / 1024 / 1024);
-        println!("Total CPU usage: {}% ", cpu_usage);
+        println!("Total CPU usage: {:.2}% ", cpu_usage);
         println!("Total logical cores: {}", core_cpus);
         println!("Total Threads: {}", total_threads);
         thread::sleep(Duration::from_secs(5));
@@ -77,6 +78,8 @@ fn disk_info(disks: &mut Disks){
 }
 fn killprocess(sys: &mut System) {
     let mut input_text = String::new();
+    print!("Kill: ");
+    io::stdout().flush().unwrap();
     io::stdin().read_line(&mut input_text).unwrap();
     let number = input_text.trim().parse::<i32>().unwrap();
     let pid = Pid::from_u32(number as u32);
