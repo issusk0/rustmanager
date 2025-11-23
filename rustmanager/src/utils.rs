@@ -58,19 +58,21 @@ fn processes_info(sys: &mut System){
             Process Name: {} \
             CPU usage: {:.2}% \
             RAM usage: {} MB \
-            \
-            ", pid,proccess_name, cpu_usage, ram_usage);
+            Status: {} \
+            ", pid,proccess_name, cpu_usage, ram_usage, process.status());
         };
 
 }
 fn disk_info(disks: &mut Disks){
+    println!("=====DISK INFO======");
+    println!();
+
        for disk in disks.list(){
             let name = disk.name().to_string_lossy();
             let total_space = disk.total_space();
             let available_space = disk.available_space();
             let used_space = total_space - available_space;
             let used_percentage = (used_space as f64 / total_space as f64) * 100.0;
-            
             println!("Disk name: {} \
                       Total storage used {:.1}%", name,used_percentage)
         }
