@@ -1,0 +1,30 @@
+.vs/
+.idea/
+rustmanager/target/*
+# Rust / Cargo
+# See https://github.com/github/gitignore/blob/main/Rust.gitignore for a canonical example
+# Ignore build artifacts
+# Leave Cargo.lock checked in for applications; if this is a library and you
+# prefer not to check in Cargo.lock, uncomment the next line.
+# Cargo.lock
+
+# IDEs and editors
+.vscode/
+.idea/
+.vs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+*.env
+
+# Logs
+*.log
+
+# Windows build artifacts (covered by /target but keep explicit patterns)
+*.exe
+*.dll
+*.pdb
