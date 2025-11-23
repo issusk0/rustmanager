@@ -83,7 +83,7 @@ fn killprocess(sys: &mut System) {
     sys.refresh_all();
 
 
-    while true{
+    loop{
         if let Some(process) = sys.process(pid) {
             println!("Trying to kill {}...", pid);
             match process.kill(){
